@@ -5,16 +5,19 @@
 }
 
 .tool-items{
-    background-color: rgb(27, 26, 26);
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+    color: #5D5F61;
+    cursor: pointer;
+    height: 40px;
+    outline: none;
     padding: 0.6rem;
     width: 40px;
-    height: 40px;
-    cursor: pointer;
-    color: #ffff;
 }
 .tool-items:hover{
     box-shadow: none;
-    background-color: #6b5e5e;
+    background-color: #bdc2c959;
 }
 
 .text-editor{
@@ -39,34 +42,16 @@
     border: 1px solid rgb(0, 0, 0);
 }
 
-.btn{
-      padding: .5rem;
-      background-color: #7e1111;
-      margin-right: 1rem;
-      color: #fffffc;
-      letter-spacing: .1rem;
-      font-size: 1rem;
-      border-radius: .2rem;
-      cursor: pointer;
-      outline: none;
-      box-shadow: 0 .4rem .4rem black;
-      transition: all .3s;
-}
-
-.btn:hover{
-      background-color: #7e1111d0;
-      box-shadow: 0 .1rem .1rem black;
-}
-
-
-
-img{
-    width: 60px;
-    height: 60px;
-    margin-top: .4rem;
-    border-radius: 50rem;
-}
-label {
-    margin-left: 0.04rem;
-    padding-left:.7rem
+.print-button{
+    background-color: #1B1B1C;
+    border: none;
+    border-radius: .2rem;
+    box-shadow: none;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    letter-spacing: .1rem;
+    margin-right: 1rem;
+    outline: none;
+    padding: 0.6rem 1rem;
 }
