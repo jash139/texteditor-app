@@ -4,7 +4,8 @@ import "./TextEditor.css";
 
 function TextEditor(props) {
     const id = props.id;
-    const toolbarItemsStyles = props.toolbarItemsStyles ? props.toolbarItemsStyles : {};
+    const toolbarStyle = props.toolbarStyle ? props.toolbarStyle : {};
+    const toolbarItemsStyle = props.toolbarItemsStyle ? props.toolbarItemsStyle : {};
     const editorStyle = props.editorStyle ? props.editorStyle : {};
 
     useEffect(() => {
@@ -26,53 +27,52 @@ function TextEditor(props) {
 
     return (
         <React.Fragment>
-            <div id="content-display"></div>
-            <div className="toolbar">
+            <div className="toolbar" style={toolbarStyle}>
                 <button
                     className="tool-items fa fa-bold"
-                    onClick={() => handleClick('bold')}
-                    style={toolbarItemsStyles}
+                    onClick={() => handleClick("bold")}
+                    style={toolbarItemsStyle}
                 />
                 <button
                     className="tool-items fa fa-italic"
-                    onClick={() => handleClick('italic')}
-                    style={toolbarItemsStyles}
+                    onClick={() => handleClick("italic")}
+                    style={toolbarItemsStyle}
                 />
                 <button
                     className="tool-items fa fa-underline"
-                    onClick={() => handleClick('underline')}
-                    style={toolbarItemsStyles}
+                    onClick={() => handleClick("underline")}
+                    style={toolbarItemsStyle}
 
                 />
                 <button
                     className="tool-items fa fa-link"
                     onClick={() => addLink()}
-                    style={toolbarItemsStyles}
-                />
-                <button
-                    className="tool-items fa fa-undo"
-                    onClick={() => handleClick('undo')}
-                    style={toolbarItemsStyles}
-                />
-                <button
-                    className="tool-items fa fa-repeat"
-                    onClick={() => handleClick('redo')}
-                    style={toolbarItemsStyles}
+                    style={toolbarItemsStyle}
                 />
                 <button
                     className="tool-items fa fa-align-center"
-                    onClick={() => handleClick('justifyCenter')}
-                    style={toolbarItemsStyles}
+                    onClick={() => handleClick("justifyCenter")}
+                    style={toolbarItemsStyle}
                 />
                 <button
                     className="tool-items fa fa-align-left"
-                    onClick={() => handleClick('justifyLeft')}
-                    style={toolbarItemsStyles}
+                    onClick={() => handleClick("justifyLeft")}
+                    style={toolbarItemsStyle}
                 />
                 <button
                     className="tool-items fa fa-align-right"
-                    onClick={() => handleClick('justifyRight')}
-                    style={toolbarItemsStyles}
+                    onClick={() => handleClick("justifyRight")}
+                    style={toolbarItemsStyle}
+                />
+                <button
+                    className="tool-items fa fa-undo"
+                    onClick={() => handleClick("undo")}
+                    style={toolbarItemsStyle}
+                />
+                <button
+                    className="tool-items fa fa-repeat"
+                    onClick={() => handleClick("redo")}
+                    style={toolbarItemsStyle}
                 />
             </div>
             <div
