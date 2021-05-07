@@ -63,8 +63,10 @@ function TextEditor() {
                 <p>Your content goes here</p>
             </div>
 
-            <button className="print-button" onClick={getTextContent}>Print Text</button>
-            <button className="print-button" onClick={getInnerHtml}>Print Html</button>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+                <button className="print-button" onClick={getTextContent}>Print Text</button>
+                <button className="print-button" onClick={getInnerHtml}>Print Html</button>
+            </div>
         </React.Fragment>
     );
 }
