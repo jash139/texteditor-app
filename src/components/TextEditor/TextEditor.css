@@ -21,25 +21,20 @@
 }
 
 .text-editor{
-    border: 1px solid black;
+    border: 1px solid #1B1B1C;
+    border-radius: 3px;
+    color: #1B1B1C;
     font-size: 1.2rem;
     height: 50vh;
     margin: 2rem;
+    outline: 0px solid transparent;
     padding: 1rem;
     overflow-y: auto;
     width:70vw;
 }
 
-.getcontent{
-    white-space: pre;
-    width: 80vw;
-    background-color: rgb(255, 255, 255);
-    overflow: auto;
-    padding: 1rem;
-    display: none;
-    margin-top: 1rem;
-    box-shadow: .1rem .1rem .5rem rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
+.text-editor:focus {
+    border: 1px solid #1B1B1C;
 }
 
 .print-button{

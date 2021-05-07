@@ -8,13 +8,12 @@ function TextEditor() {
         document.execCommand("createLink", false, url);
     }
 
-    const printText = () => {
+    const getTextContent = () => {
         var editorContent = document.querySelector(".text-editor");
         console.log(editorContent.textContent);
     };
 
-    const printInnerHtml = () => {
-        var getContent = document.querySelector(".getcontent");
+    const getInnerHtml = () => {
         var editorContent = document.querySelector(".text-editor");
         console.log(editorContent.innerHTML);
     };
@@ -60,12 +59,12 @@ function TextEditor() {
                     onClick={() => document.execCommand('justifyRight', false, '')}
                 />
             </div>
-            <div className="text-editor" contentEditable>
+            <div className="text-editor" contentEditable={true} suppressContentEditableWarning={true}>
                 <p>Your content goes here</p>
             </div>
 
-            <button className="print-button" onClick={printText}>Print Text</button>
-            <button className="print-button" onClick={printInnerHtml}>Print Html</button>
+            <button className="print-button" onClick={getTextContent}>Print Text</button>
+            <button className="print-button" onClick={getInnerHtml}>Print Html</button>
         </React.Fragment>
     );
 }
