@@ -4,9 +4,13 @@ import "./TextEditor.css";
 
 function TextEditor() {
     const addLink = () => {
-        var url = prompt("Enter the URL");
+        var url = prompt("Enter URL:");
         document.execCommand("createLink", false, url);
     }
+
+    const handleClick = (value) => {
+        document.execCommand([value], false, '');
+    };
 
     const getTextContent = () => {
         var editorContent = document.querySelector(".text-editor");
@@ -19,19 +23,19 @@ function TextEditor() {
     };
 
     return (
-        <React.Fragment>
+        <div>
             <div className="toolbar">
                 <button
                     className="tool-items fa fa-bold"
-                    onClick={() => document.execCommand('bold', false, '')}
+                    onClick={() => handleClick('bold')}
                 />
                 <button
                     className="tool-items fa fa-italic"
-                    onClick={() => document.execCommand('italic', false, '')}
+                    onClick={() => handleClick('italic')}
                 />
                 <button
                     className="tool-items fa fa-underline"
-                    onClick={() => document.execCommand('underline', false, '')}
+                    onClick={() => handleClick('underline')}
 
                 />
                 <button
@@ -40,34 +44,34 @@ function TextEditor() {
                 />
                 <button
                     className="tool-items fa fa-undo"
-                    onClick={() => document.execCommand('undo', false, '')}
+                    onClick={() => handleClick('undo')}
                 />
                 <button
                     className="tool-items fa fa-repeat"
-                    onClick={() => document.execCommand('redo', false, '')}
+                    onClick={() => handleClick('redo')}
                 />
                 <button
                     className="tool-items fa fa-align-center"
-                    onClick={() => document.execCommand('justifyCenter', false, '')}
+                    onClick={() => handleClick('justifyCenter')}
                 />
                 <button
                     className="tool-items fa fa-align-left"
-                    onClick={() => document.execCommand('justifyLeft', false, '')}
+                    onClick={() => handleClick('justifyLeft')}
                 />
                 <button
                     className="tool-items fa fa-align-right"
-                    onClick={() => document.execCommand('justifyRight', false, '')}
+                    onClick={() => handleClick('justifyRight')}
                 />
             </div>
             <div className="text-editor" contentEditable={true} suppressContentEditableWarning={true}>
-                <p>Your content goes here</p>
+                <p>Content</p>
             </div>
 
             <div style={{ display: "flex", justifyContent: "center" }}>
                 <button className="print-button" onClick={getTextContent}>Print Text</button>
                 <button className="print-button" onClick={getInnerHtml}>Print Html</button>
             </div>
-        </React.Fragment>
+        </div>
     );
 }
 

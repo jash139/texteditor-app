@@ -32,6 +32,10 @@
     overflow-y: auto;
 }
 
+.text-editor-p:empty:not(:focus)::before {
+    content: attr(data-placeholder);
+  }
+
 .print-button{
     background-color: #5D5F61;
     border: none;
