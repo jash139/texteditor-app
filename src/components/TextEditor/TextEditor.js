@@ -20,10 +20,10 @@ function TextEditor() {
     //     content.textContent = old;
     // });
 
-    // function link() {
-    //     var url = prompt("Enter the URL");
-    //     document.execCommand("createLink", false, url);
-    // }
+    function link() {
+        var url = prompt("Enter the URL");
+        document.execCommand("createLink", false, url);
+    }
 
     // function copy() {
     //     document.execCommand("copy", false, "");
@@ -60,16 +60,13 @@ function TextEditor() {
     //     }
     // }
 
-    // function printMe() {
-    //     const body = document.body;
-    //     let s = body.innerHTML;
-    //     body.textContent = editorContent.innerHTML;
+    const printInnerHtml = () => {
+        var getContent = document.querySelector(".getcontent");
+        var editorContent = document.querySelector(".text-editor");
+        getContent.textContent = editorContent.innerHTML;
 
-    //     document.execCommandShowHelp();
-    //     body.style.whiteSpace = "pre";
-    //     window.print();
-    //     window.location.reload();
-    // }
+        console.log(editorContent);
+    }
 
     return (
         <React.Fragment>
@@ -89,7 +86,7 @@ function TextEditor() {
                 />
                 <button
                     className="tool-items fa fa-link"
-                    onClick="link()"
+                    onClick={() => link()}
                 />
                 <button
                     className="tool-items fa fa-undo"
@@ -115,6 +112,12 @@ function TextEditor() {
             <div className="text-editor" contentEditable>
                 <p>Your content goes here</p>
             </div>
+
+            <button className="sai btn">GetHtml</button>
+            <button className="getText btn">GetText</button>
+            <button className="btn print" onClick={printInnerHtml}>PrintHtml</button>
+
+            <section className="getcontent" />
         </React.Fragment>
     );
 }
