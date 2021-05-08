@@ -4,7 +4,7 @@
     justify-content: center;
 }
 
-.tool-items{
+.tool-item{
     background-color: transparent;
     border: none;
     border-radius: 3px;
@@ -15,7 +15,7 @@
     padding: 0.6rem;
     width: 40px;
 }
-.tool-items:hover{
+.tool-item:hover{
     box-shadow: none;
     background-color: #bdc2c959;
 }

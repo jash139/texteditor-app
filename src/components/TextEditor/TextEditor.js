@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 
 import "./TextEditor.css";
 
@@ -29,48 +30,48 @@ function TextEditor(props) {
         <React.Fragment>
             <div className="toolbar" style={toolbarStyle}>
                 <button
-                    className="tool-items fa fa-bold"
+                    className="tool-item fa fa-bold"
                     onClick={() => handleClick("bold")}
                     style={toolItemStyle}
                 />
                 <button
-                    className="tool-items fa fa-italic"
+                    className="tool-item fa fa-italic"
                     onClick={() => handleClick("italic")}
                     style={toolItemStyle}
                 />
                 <button
-                    className="tool-items fa fa-underline"
+                    className="tool-item fa fa-underline"
                     onClick={() => handleClick("underline")}
                     style={toolItemStyle}
 
                 />
                 <button
-                    className="tool-items fa fa-link"
+                    className="tool-item fa fa-link"
                     onClick={() => addLink()}
                     style={toolItemStyle}
                 />
                 <button
-                    className="tool-items fa fa-align-center"
+                    className="tool-item fa fa-align-center"
                     onClick={() => handleClick("justifyCenter")}
                     style={toolItemStyle}
                 />
                 <button
-                    className="tool-items fa fa-align-left"
+                    className="tool-item fa fa-align-left"
                     onClick={() => handleClick("justifyLeft")}
                     style={toolItemStyle}
                 />
                 <button
-                    className="tool-items fa fa-align-right"
+                    className="tool-item fa fa-align-right"
                     onClick={() => handleClick("justifyRight")}
                     style={toolItemStyle}
                 />
                 <button
-                    className="tool-items fa fa-undo"
+                    className="tool-item fa fa-undo"
                     onClick={() => handleClick("undo")}
                     style={toolItemStyle}
                 />
                 <button
-                    className="tool-items fa fa-repeat"
+                    className="tool-item fa fa-repeat"
                     onClick={() => handleClick("redo")}
                     style={toolItemStyle}
                 />
@@ -87,6 +88,23 @@ function TextEditor(props) {
         </React.Fragment>
     );
 }
+
+const propTypes = {
+    id: PropTypes.string.isRequired,
+    toolbarStyle: PropTypes.object,
+    toolItemStyle: PropTypes.object,
+    editorStyle: PropTypes.object
+};
+
+const defaultProps = {
+    id: "react-text-editor",
+    toolbarStyle: {},
+    toolItemStyle: {},
+    editorStyle: {}
+};
+
+TextEditor.propTypes = propTypes;
+TextEditor.defaultProps = defaultProps;
 
 const getTextContent = (id) => {
     const editorContent = document.querySelector(`#${id}`);
