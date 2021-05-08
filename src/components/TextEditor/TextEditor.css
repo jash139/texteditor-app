@@ -31,22 +31,3 @@
     padding: 1rem;
     overflow-y: auto;
 }
-
-.react-text-editor-p:empty:not(:focus)::before {
-    content: attr(data-placeholder);
-}
-
-.print-button{
-    background-color: #5D5F61;
-    border: none;
-    border-radius: .2rem;
-    box-shadow: none;
-    color: white;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: .1rem;
-    margin: 0 1rem;
-    outline: none;
-    padding: 0.6rem 1rem;
-}
