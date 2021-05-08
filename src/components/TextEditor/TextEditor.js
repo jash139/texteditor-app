@@ -20,7 +20,7 @@ function TextEditor(props) {
     const addLink = () => {
         var url = prompt("Enter URL:");
         document.execCommand("createLink", false, url);
-    }
+    };
 
     const handleClick = (value) => {
         document.execCommand([value], false, '');
@@ -133,4 +133,4 @@ export {
     getTextContent,
     getInnerHtml,
     addContentTo
-}
+};
