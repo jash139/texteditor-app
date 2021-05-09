@@ -21,21 +21,21 @@ function TextEditor(props) {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const addLink = () => {
-        var url = prompt("Enter URL:");
+        const url = prompt("Add link:");
         document.execCommand("createLink", false, url);
     };
 
     function insertHeading(html) {
-        var sel, range;
+        var selection, range;
         if (window.getSelection) {
-            sel = window.getSelection();
-            if (sel.getRangeAt && sel.rangeCount) {
-                range = sel.getRangeAt(0);
+            selection = window.getSelection();
+            if (selection.getRangeAt && selection.rangeCount) {
+                range = selection.getRangeAt(0);
                 range.deleteContents();
-                var el = document.createElement("div");
-                el.innerHTML = html;
+                var element = document.createElement("div");
+                element.innerHTML = html;
                 var frag = document.createDocumentFragment(), node, lastNode;
-                while ((node = el.firstChild)) {
+                while ((node = element.firstChild)) {
                     lastNode = frag.appendChild(node);
                 }
                 range.insertNode(frag);
@@ -44,8 +44,8 @@ function TextEditor(props) {
                     range = range.cloneRange();
                     range.setStartAfter(lastNode);
                     range.collapse(true);
-                    sel.removeAllRanges();
-                    sel.addRange(range);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
                 }
             }
         } else if (document.selection && document.selection.type !== "Control") {
@@ -65,7 +65,7 @@ function TextEditor(props) {
             onClick={() => insertHeading(`<h${number}>Heading ${number}</h${number}>`)}
         >
             H{number}
-        </button>)
+        </button>);
     };
 
     return (
