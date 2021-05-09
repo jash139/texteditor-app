@@ -24,6 +24,10 @@ function App() {
       <TextEditor
         id={id}
       // content={content}
+      // showHeadings={false}
+      // showJustify={false}
+      // showUndoRedo={false}
+      // content={content}
       />
       <button onClick={handleClick}>Print html</button>
       <button onClick={addContent}>Add content</button>

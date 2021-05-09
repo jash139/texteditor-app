@@ -7,6 +7,9 @@ function TextEditor(props) {
     const id = props.id;
     const toolbarStyle = props.toolbarStyle;
     const toolItemStyle = props.toolItemStyle;
+    const showHeadings = props.showHeadings;
+    const showJustify = props.showJustify;
+    const showUndoRedo = props.showUndoRedo;
     const editorStyle = props.editorStyle;
 
     useEffect(() => {
@@ -54,93 +57,73 @@ function TextEditor(props) {
         document.execCommand([value], false, '');
     };
 
+    const getHeadingButtons = () => {
+        return [1, 2, 3, 4, 5, 6].map(number => <button
+            key={number}
+            className="tool-item heading-btn"
+            style={toolItemStyle}
+            onClick={() => insertHeading(`<h${number}>Heading ${number}</h${number}>`)}
+        >
+            H{number}
+        </button>)
+    };
+
     return (
         <React.Fragment>
             <div className="toolbar" style={toolbarStyle}>
-                <div>
-                    <button
-                        className="tool-item heading-btn"
-                        onClick={() => insertHeading(`<h1>Heading 1</h1>`)}
-                    >
-                        H1
-                    </button>
-                    <button
-                        className="tool-item heading-btn"
-                        onClick={() => insertHeading(`<h2>Heading 2</h2>`)}
-                    >
-                        H2
-                    </button>
-                    <button
-                        className="tool-item heading-btn"
-                        onClick={() => insertHeading(`<h3>Heading 3</h3>`)}
-                    >
-                        H3
-                    </button>
-                    <button
-                        className="tool-item heading-btn"
-                        onClick={() => insertHeading(`<h4>Heading 4</h4>`)}
-                    >
-                        H4
-                    </button>
-                    <button
-                        className="tool-item heading-btn"
-                        onClick={() => insertHeading(`<h5>Heading 5</h5>`)}
-                    >
-                        H5
-                    </button>
-                    <button
-                        className="tool-item heading-btn"
-                        onClick={() => insertHeading(`<h6>Heading 6</h6>`)}
-                    >
-                        H6
-                    </button>
+                <div style={{ display: showHeadings ? "" : "none" }}>
+                    {getHeadingButtons()}
                 </div>
                 <button
                     className="tool-item fa fa-bold"
-                    onClick={() => handleClick("bold")}
                     style={toolItemStyle}
+                    onClick={() => handleClick("bold")}
                 />
                 <button
                     className="tool-item fa fa-italic"
-                    onClick={() => handleClick("italic")}
                     style={toolItemStyle}
+                    onClick={() => handleClick("italic")}
                 />
                 <button
                     className="tool-item fa fa-underline"
-                    onClick={() => handleClick("underline")}
                     style={toolItemStyle}
+                    onClick={() => handleClick("underline")}
 
                 />
                 <button
                     className="tool-item fa fa-link"
+                    style={toolItemStyle}
                     onClick={() => addLink()}
-                    style={toolItemStyle}
                 />
-                <button
-                    className="tool-item fa fa-align-center"
-                    onClick={() => handleClick("justifyCenter")}
-                    style={toolItemStyle}
-                />
-                <button
-                    className="tool-item fa fa-align-left"
-                    onClick={() => handleClick("justifyLeft")}
-                    style={toolItemStyle}
-                />
-                <button
-                    className="tool-item fa fa-align-right"
-                    onClick={() => handleClick("justifyRight")}
-                    style={toolItemStyle}
-                />
-                <button
-                    className="tool-item fa fa-undo"
-                    onClick={() => handleClick("undo")}
-                    style={toolItemStyle}
-                />
-                <button
-                    className="tool-item fa fa-repeat"
-                    onClick={() => handleClick("redo")}
-                    style={toolItemStyle}
-                />
+                <div style={{ display: showJustify ? "" : "none" }}>
+                    <button
+                        className="tool-item fa fa-align-center"
+                        style={toolItemStyle}
+                        onClick={() => handleClick("justifyCenter")}
+                    />
+                    <button
+                        className="tool-item fa fa-align-left"
+                        style={toolItemStyle}
+                        onClick={() => handleClick("justifyLeft")}
+                    />
+                    <button
+                        className="tool-item fa fa-align-right"
+                        style={toolItemStyle}
+                        onClick={() => handleClick("justifyRight")}
+                    />
+                </div>
+                <div style={{ display: showUndoRedo ? "" : "none" }}>
+                    <button
+                        className="tool-item fa fa-undo"
+                        style={toolItemStyle}
+                        onClick={() => handleClick("undo")}
+                    />
+                    <button
+                        className="tool-item fa fa-repeat"
+                        style={toolItemStyle}
+                        onClick={() => handleClick("redo")}
+                    />
+                </div>
             </div>
             <div
                 className="react-text-editor"
@@ -157,6 +140,9 @@ function TextEditor(props) {
 
 const propTypes = {
     id: PropTypes.string.isRequired,
+    showHeadings: PropTypes.bool,
+    showUndoRedo: PropTypes.bool,
+    showJustify: PropTypes.bool,
     toolbarStyle: PropTypes.object,
     toolItemStyle: PropTypes.object,
     editorStyle: PropTypes.object
@@ -164,6 +150,9 @@ const propTypes = {
 
 const defaultProps = {
     id: "react-text-editor",
+    showHeadings: true,
+    showUndoRedo: true,
+    showJustify: true,
     toolbarStyle: {},
     toolItemStyle: {},
     editorStyle: {}
