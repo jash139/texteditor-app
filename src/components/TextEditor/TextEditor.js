@@ -57,42 +57,44 @@ function TextEditor(props) {
     return (
         <React.Fragment>
             <div className="toolbar" style={toolbarStyle}>
-                <button
-                    className="tool-item heading-btn"
-                    onClick={() => insertHeading(`<h1>Heading 1</h1>`)}
-                >
-                    h1
-                </button>
-                <button
-                    className="tool-item heading-btn"
-                    onClick={() => insertHeading(`<h2>Heading 2</h2>`)}
-                >
-                    h2
-                </button>
-                <button
-                    className="tool-item heading-btn"
-                    onClick={() => insertHeading(`<h3>Heading 3</h3>`)}
-                >
-                    h3
-                </button>
-                <button
-                    className="tool-item heading-btn"
-                    onClick={() => insertHeading(`<h4>Heading 4</h4>`)}
-                >
-                    h4
-                </button>
-                <button
-                    className="tool-item heading-btn"
-                    onClick={() => insertHeading(`<h5>Heading 5</h5>`)}
-                >
-                    h5
-                </button>
-                <button
-                    className="tool-item heading-btn"
-                    onClick={() => insertHeading(`<h6>Heading 6</h6>`)}
-                >
-                    h6
-                </button>
+                <div>
+                    <button
+                        className="tool-item heading-btn"
+                        onClick={() => insertHeading(`<h1>Heading 1</h1>`)}
+                    >
+                        H1
+                    </button>
+                    <button
+                        className="tool-item heading-btn"
+                        onClick={() => insertHeading(`<h2>Heading 2</h2>`)}
+                    >
+                        H2
+                    </button>
+                    <button
+                        className="tool-item heading-btn"
+                        onClick={() => insertHeading(`<h3>Heading 3</h3>`)}
+                    >
+                        H3
+                    </button>
+                    <button
+                        className="tool-item heading-btn"
+                        onClick={() => insertHeading(`<h4>Heading 4</h4>`)}
+                    >
+                        H4
+                    </button>
+                    <button
+                        className="tool-item heading-btn"
+                        onClick={() => insertHeading(`<h5>Heading 5</h5>`)}
+                    >
+                        H5
+                    </button>
+                    <button
+                        className="tool-item heading-btn"
+                        onClick={() => insertHeading(`<h6>Heading 6</h6>`)}
+                    >
+                        H6
+                    </button>
+                </div>
                 <button
                     className="tool-item fa fa-bold"
                     onClick={() => handleClick("bold")}

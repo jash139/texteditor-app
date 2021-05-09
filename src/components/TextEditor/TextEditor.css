@@ -20,6 +20,11 @@
     background-color: #bdc2c959;
 }
 
+.heading-btn {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
 .react-text-editor{
     border: 1px solid #5D5F61;
     border-radius: 3px;
