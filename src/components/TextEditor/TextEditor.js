@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import "./TextEditor.css";
@@ -11,14 +11,6 @@ function TextEditor(props) {
     const showJustify = props.showJustify;
     const showUndoRedo = props.showUndoRedo;
     const editorStyle = props.editorStyle;
-
-    useEffect(() => {
-        let content = props.content;
-        if (content) {
-            content = stringToHtml(content);
-            addContentTo(content, props.id);
-        }
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const addLink = () => {
         const url = prompt("Add link:");
@@ -187,5 +179,6 @@ export {
     TextEditor,
     getTextContent,
     getInnerHtml,
-    addContentTo
+    addContentTo,
+    stringToHtml
 };
