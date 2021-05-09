@@ -16,14 +16,14 @@ function App() {
 
   // const content = ` `; // for empty textfield
 
-  const content = `<p style="text-align: right;">Cont<u>ent</u></p><p style="text-align: right;"><u>da fjal;</u></p><p style="text-align: right;"><b>ea '</b>&nbsp;</p><p style="text-align: right;"><br></p>`;
+  // const content = `<p style="text-align: right;">Cont<u>ent</u></p><p style="text-align: right;"><u>da fjal;</u></p><p style="text-align: right;"><b>ea '</b>&nbsp;</p><p style="text-align: right;"><br></p>`;
 
   return (
     <React.Fragment>
       <div id={targetDiv}></div>
       <TextEditor
         id={id}
-        content={content}
+      // content={content}
       />
       <button onClick={handleClick}>Print html</button>
       <button onClick={addContent}>Add content</button>

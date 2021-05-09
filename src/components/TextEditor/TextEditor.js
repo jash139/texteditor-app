@@ -5,9 +5,9 @@ import "./TextEditor.css";
 
 function TextEditor(props) {
     const id = props.id;
-    const toolbarStyle = props.toolbarStyle ? props.toolbarStyle : {};
-    const toolItemStyle = props.toolItemStyle ? props.toolItemStyle : {};
-    const editorStyle = props.editorStyle ? props.editorStyle : {};
+    const toolbarStyle = props.toolbarStyle;
+    const toolItemStyle = props.toolItemStyle;
+    const editorStyle = props.editorStyle;
 
     useEffect(() => {
         let content = props.content;
@@ -22,6 +22,34 @@ function TextEditor(props) {
         document.execCommand("createLink", false, url);
     };
 
+    function insertHeading(html) {
+        var sel, range;
+        if (window.getSelection) {
+            sel = window.getSelection();
+            if (sel.getRangeAt && sel.rangeCount) {
+                range = sel.getRangeAt(0);
+                range.deleteContents();
+                var el = document.createElement("div");
+                el.innerHTML = html;
+                var frag = document.createDocumentFragment(), node, lastNode;
+                while ((node = el.firstChild)) {
+                    lastNode = frag.appendChild(node);
+                }
+                range.insertNode(frag);
+
+                if (lastNode) {
+                    range = range.cloneRange();
+                    range.setStartAfter(lastNode);
+                    range.collapse(true);
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+            }
+        } else if (document.selection && document.selection.type !== "Control") {
+            document.selection.createRange().pasteHTML(html);
+        }
+    }
+
     const handleClick = (value) => {
         document.execCommand([value], false, '');
     };
@@ -29,6 +57,42 @@ function TextEditor(props) {
     return (
         <React.Fragment>
             <div className="toolbar" style={toolbarStyle}>
+                <button
+                    className="tool-item heading-btn"
+                    onClick={() => insertHeading(`<h1>Heading 1</h1>`)}
+                >
+                    h1
+                </button>
+                <button
+                    className="tool-item heading-btn"
+                    onClick={() => insertHeading(`<h2>Heading 2</h2>`)}
+                >
+                    h2
+                </button>
+                <button
+                    className="tool-item heading-btn"
+                    onClick={() => insertHeading(`<h3>Heading 3</h3>`)}
+                >
+                    h3
+                </button>
+                <button
+                    className="tool-item heading-btn"
+                    onClick={() => insertHeading(`<h4>Heading 4</h4>`)}
+                >
+                    h4
+                </button>
+                <button
+                    className="tool-item heading-btn"
+                    onClick={() => insertHeading(`<h5>Heading 5</h5>`)}
+                >
+                    h5
+                </button>
+                <button
+                    className="tool-item heading-btn"
+                    onClick={() => insertHeading(`<h6>Heading 6</h6>`)}
+                >
+                    h6
+                </button>
                 <button
                     className="tool-item fa fa-bold"
                     onClick={() => handleClick("bold")}
