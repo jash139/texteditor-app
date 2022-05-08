@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TextEditor, getInnerHtml, addContentTo } from "../TextEditor/TextEditor";
 
 function App() {
@@ -16,7 +16,11 @@ function App() {
 
   // const content = ` `; // for empty textfield
 
-  // const content = `<p style="text-align: right;">Cont<u>ent</u></p><p style="text-align: right;"><u>da fjal;</u></p><p style="text-align: right;"><b>ea '</b>&nbsp;</p><p style="text-align: right;"><br></p>`;
+  const content = `<p style="text-align: right;">Cont<u>ent</u></p><p style="text-align: right;"><u>da fjal;</u></p><p style="text-align: right;"><b>ea '</b>&nbsp;</p><p style="text-align: right;"><br></p>`;
+
+  useEffect(() => {
+    addContentTo(content, id);
+  }, []);
 
   return (
     <React.Fragment>
